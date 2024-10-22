@@ -1,0 +1,31 @@
+{% extends "home.html" %}
+{% block title %}search{% endblock %}
+{%block content%} 
+    <div class="container text-center">
+        <div class="display-1 fw-bold duck-photo mb-4">
+           <a href="/" class="text-decoration-none"> <span style="color: crimson;">T</span><span style="color: limegreen;">U</span></a>
+        </div>
+        <form action="/search" method="post" class="mb-4">
+            <div class="input-group">
+                <input type="search" name="search" class="form-control" placeholder="Search the Web and Happy Learning!">
+                <button class="btn btn-primary" type="submit">
+                    <img src="{{ url_for('static', filename='searchbar.svg') }}"  alt="Search Icon" width="24" height="24">
+                </button>            
+            </div>
+        </form>
+
+        <div class="mt-4">
+            {% for data in datas %}
+            {% if data[5] != 0 %}
+                <div class="mb-4">
+                    <h3> {{ data[5] }}</h3>
+                    <a href="{{ data[2] }}" target="_blank" class="d-block mb-2">{{ data[2] }}</a>
+                    <p>{{ data[4] | truncate(300) }}</p>
+                </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div> 
+       
+    <script src="{{ url_for('static', filename='bootstrap.bundle.min.js') }}"></script>
+{%endblock%}

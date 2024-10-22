@@ -1,0 +1,49 @@
+{% extends "home.html" %}
+{% block title %}Admin_Login{% endblock %}
+{% block content %} 
+    <section class="login-sec d-flex justify-content-center align-items-center vh-100">
+        <form action="/admin" method="POST" class="p-4 rounded shadow bg-white" style="max-width: 400px; width: 100%;">
+            <div class="container">
+                <div class="login text-center mb-4">
+                    <h4>Login To Admin</h4>
+                </div>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <h5 class="incorrect text-danger text-center">{{ message }}</h5>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+               
+                <div class="mb-3">
+                    <input name="username" type="text" class="form-control" placeholder="Enter Name">
+                </div>
+                <div class="mb-3 position-relative">
+                    <input name="password" id="password" type="password" class="form-control" placeholder="Enter Password">
+                    <img src="{{ url_for('static', filename='eye-slash.svg') }}" class="bi bi-eye-slash" id="togglePassword" style="cursor: pointer; position: absolute; right: 15px; top: 12px;">
+                </div>
+                <div class="d-grid">
+                    <button class="btn btn-primary">Login</button>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <script src="{{ url_for('static', filename='bootstrap.bundle.min.js') }}"></script>
+
+    <!-- Toggle password visibility -->
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+
+        togglePassword.addEventListener('click', function () {
+            // Toggle the type attribute
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            
+            // Toggle the icon between eye and eye-slash
+            this.classList.toggle('bi-eye');
+            this.classList.toggle('bi-eye-slash');
+        });
+    </script>
+{% endblock %}

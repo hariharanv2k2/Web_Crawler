@@ -1,0 +1,83 @@
+{% extends "home.html" %}
+{% block title %}Add URLs{% endblock %}
+{% block content %}
+    <header>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand mx-5 display-6 fw-bold" href="/">TU</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 px-5">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/active">Activated URLs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/deactive">Deactivated URLs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/add">Add URL</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/delete">Delete URL</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Manage Users
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="/user">Show Users</a></li>
+                                <li><a class="dropdown-item" href="/signup">Add Users</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center ms-auto">
+                        <img src="{{ url_for('static', filename='person.svg') }}" class="bi bi-person logo" alt="person Image" style="width: 30px; height: 30px; margin-right: 10px;">
+                        <span class="navbar-text text-white me-3">{{ session['username'] }}</span>
+                        <a class="btn btn-outline-light" href="/logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="addurl">
+        <section class="login-sec py-5">
+            <div class="container my-5">
+                <div class="row">
+                    <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12">
+                        <div class="card shadow-sm">
+                            <div class="card-body p-5">
+                                <h4 class="text-center mb-4">Add URL Page</h4>
+                                <form action="/add" method="POST">
+                                    <div class="mb-3">
+                                        <label for="websitename" class="form-label">Website Name</label>
+                                        <input name="websitename" type="text" class="form-control" id="websitename" placeholder="Enter website name" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="url_path" class="form-label">URL Path</label>
+                                        <input name="url_path" type="url" class="form-control" id="url_path" placeholder="Enter URL" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="discription" class="form-label">Description</label>
+                                        <textarea name="discription" class="form-control" id="discription" rows="3" placeholder="Enter a description" required></textarea>
+                                    </div>
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-primary btn-lg">Add</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="bg-dark text-center text-white py-4">
+        <p>&copy; 2024 TU. All rights reserved.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='bootstrap.bundle.min.js') }}"></script>
+{% endblock %}

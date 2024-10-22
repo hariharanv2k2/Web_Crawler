@@ -1,0 +1,89 @@
+
+{% block head %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}_TU_</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-icons.css') }}">
+{% endblock %}
+{%block content%}
+    <div class="container text-center">
+        <div class="display-1 fw-bold duck-photo mb-4">
+            <span style="color: crimson;">T</span><span style="color: limegreen;">U</span>
+        </div>
+        <form action="/search" method="post" class="mb-4">
+            <div class="input-group">
+                <input type="search" name="search" class="form-control" placeholder="Search the Web and Happy Learning!">
+                <button class="btn btn-primary" type="submit">
+                    <img src="{{ url_for('static', filename='searchbar.svg') }}"  alt="Search Icon" width="24" height="24">
+                </button>
+            </div>
+        </form>
+
+        <h1 class="mb-3">Project submitted by 2023-2025 Batch.</h1>
+        <h2 class="mb-3">(School of Computer Science )</h2>
+        <div class="add-login mb-4">
+            <a href="/login" class="btn btn-secondary">Admin Login</a>
+        </div>
+        <h2 class="mb-3">TU official Search engine:</h2>
+        <h3 class="mb-5">Search Any Technology or Term!</h3>
+    </div>
+
+    <!-- image div -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{{ url_for('static', filename='laptop.svg') }}" class="card-img-top" alt="Laptop Image">
+                    <div class="card-body text-center">
+                        <h2 class="card-title">About my Team</h2>
+                        <h3>Project Guide: Mr. Santhoshkumar</h3>
+                        <h4>Team Members:</h4>
+                        <ul class="list-unstyled">
+                            <li class="h4">Hariharan V.</li>
+                            <li class="h4">Yukthi.Gs </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{{ url_for('static', filename='search.svg') }}" class="card-img-top" alt="Search Image">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">About Search Engine</h3>
+                        <p>The search engine web application allows users to search for any kind of information in a single query. It retrieves information from certified websites and displays pages where the keywords are present, making it easy to filter and find the desired content.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{{ url_for('static', filename='mobile.svg') }}" class="card-img-top" alt="Mobile Image">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">About my University</h3>
+                        <p>Takshashila University was established with the vision to recreate the glory of the ancient Takshashila, India’s oldest university of higher learning. Located in Ongur, Tamil Nadu, the university is part of the prestigious Sri Manakula Vinayagar and Mailam Group of Institutions, with over 25 years of experience providing quality education.<a style="text-decoration: none;" href="https://www.takshashilauniv.ac.in/">aboutmore..</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!-- Footer -->
+     {% block footer %}
+     <footer class="bg-dark text-white text-center py-4 mt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2024 TU Search. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    {% endblock%}
+
+    <script src="{{ url_for('static', filename='bootstrap.bundle.min.js') }}"></script>
+{%endblock%}
+

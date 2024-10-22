@@ -1,0 +1,100 @@
+{% extends "home.html" %}
+{% block title %}Deactivated_urls{% endblock %}
+{%block content%}        
+    <header>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand mx-5 display-1 fw-bold" href="/">TU</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 px-5">
+                  <li class="nav-item">
+                    <a class="nav-link " href="/active">Activated Urls</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/deactive">Deactivated Urls</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/add">Add URL</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/delete">Delete URL</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Manage Users
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/user">Show Users</a></li>
+                        <li><a class="dropdown-item" href="/signup">Add Users</a></li>
+                    </ul>
+                </li>
+                </ul>
+                <div class="d-flex align-items-center ms-auto">
+                    <img src="{{ url_for('static', filename='person.svg') }}" class="bi bi-person logo" alt="person Image" style="width: 30px; height: 30px; margin-right: 10px;">
+                  <span class="navbar-text text-white me-3">{{ session['username'] }}</span>
+                  <a class="btn btn-outline-light" href="/logout">Logout</a>
+              </div>
+              </div>
+            </div>
+          </nav>
+    </header>
+    <!-- Flash message section -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+    </div>
+
+   
+     
+    <!-- table -->
+    <form action="/active" method="POST">
+      <div class="container my-5">
+          <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                  <thead class="table-light">
+                      <tr>
+                          <th scope="col">Website Name</th>
+                          <th scope="col">URL Name</th>
+                          <th scope="col">Action</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                {% for record in records %}
+  
+                    <tr>
+                        <td><i class="fa-solid fa-file"></i>{{ record[1] }}</td>
+                        <td>{{record[2] | truncate(30)}}</td>
+                        
+                        <td>
+                          <a href="/tobeactivated/{{record[0]}}" class="btn btn-success">Activate</a>
+                      </td>
+            
+                    </tr>
+                {% endfor %}
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </form>
+
+
+    
+
+
+  <script src="{{ url_for('static', filename='bootstrap.bundle.min.js') }}"></script>
+{%endblock%}

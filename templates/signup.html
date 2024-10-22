@@ -1,0 +1,105 @@
+{% extends "home.html" %}
+{% block title %}Signup New Admin{% endblock %}
+{% block content %} 
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand mx-5 display-6 fw-bold" href="/">TU</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 px-5">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/active">Activated URLs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/deactive">Deactivated URLs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/add">Add URL</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/delete">Delete URL</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Manage Users
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="/user">Show Users</a></li>
+                                <li><a class="dropdown-item active" href="/signup">Add Users</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center ms-auto">
+                        <img src="{{ url_for('static', filename='person.svg') }}" class="bi bi-person logo" alt="person Image" style="width: 30px; height: 30px; margin-right: 10px;">
+                        <span class="navbar-text text-white me-3">{{ session['username'] }}</span>
+                        <a class="btn btn-outline-light" href="/logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="adminsignup">
+        <section class="login-sec py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <div class="card shadow-sm">
+                            <div class="card-body p-5">
+                                <h4 class="text-center mb-4">Signup New Admin</h4>
+                                <form action="/signup" method="POST">
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">User Name</label>
+                                        <input name="Name" type="text" class="form-control" id="username" placeholder="Enter user name" required>
+                                    </div>
+                                    <div class="mb-3 position-relative">
+                                        <label for="password" class="form-label">Password</label>
+                                        <input name="Password" type="password" class="form-control" id="password" placeholder="Enter password" required>
+                                        <img src="{{ url_for('static', filename='eye-slash.svg') }}" class="bi bi-eye-slash" id="togglePassword" style="cursor: pointer; position: absolute; right: 10px; top: 45px;">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="phoneno" class="form-label">Phone Number</label>
+                                        <input name="Phoneno" type="text" class="form-control" id="phoneno" placeholder="Enter phone number" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="role" class="form-label">Role</label>
+                                        <input name="Role" type="text" class="form-control" id="role" placeholder="Enter role" required>
+                                    </div>
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <p>&copy; 2024 TU. All rights reserved.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='bootstrap.bundle.min.js') }}"></script>
+
+    <!-- Toggle password visibility -->
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+
+        togglePassword.addEventListener('click', function () {
+            // Toggle the type attribute
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            
+            // Toggle the icon
+            this.classList.toggle('bi-eye');
+            this.classList.toggle('bi-eye-slash');
+        });
+    </script>
+{% endblock %}

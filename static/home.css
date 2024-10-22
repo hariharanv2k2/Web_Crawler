@@ -1,0 +1,138 @@
+body{
+    font-family: sans-serif;
+}
+
+.logo{
+    background-color: azure;     
+  }
+  
+/* .container{
+    text-align: center;
+}
+.add-login{
+    padding: 21px;
+}
+.add-login a{
+    background: #1877f2;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.container .duck-photo{
+    font-size: 4.5em;
+    font-family: fangsong;
+}
+
+.container .input-div{
+    width: 100%;
+    
+}
+
+.container .input-div input{
+    width: 40%;
+    padding: 10px 50px;
+    border: 1px solid gray;
+    border-right-style: none;
+    font-size: 1em;    
+}
+
+.container .input-div button{
+    border: 1px solid gray;
+    padding: 10px 10px;
+    border-left: none;
+    background: #1877f2;
+    font-size: 1em;
+    position: relative;
+    right: 6px;
+}
+
+.container h1{
+    font-size: 2.5em;
+    color: #1c1a1ad1;
+}
+
+.container p{
+    font-size: 1.2em;
+}
+
+.container .icon-div span{
+    padding: 4px;
+}
+
+.container .icon-div span i{
+    background-color: dodgerblue;
+    padding: 2px;
+    border-radius: 20px;
+    color: white;
+}
+
+.container .search-btn {
+    background-color: cornflowerblue;
+    color: white;
+    padding: 11px;
+    border: none;
+    border-radius: 12px;
+    margin: 20px;
+    font-weight: bold;
+}
+
+.container h3{
+    margin-top: 45px;
+}
+    .image-div{
+    display: flex;
+    padding: 0 90px;
+   
+}
+
+.image-div .photo {
+    padding: 38px;
+    background-color: whitesmoke;
+    border-radius: 15px;
+    flex: 33.33%;
+    margin: 19px;
+    box-shadow: 0px 0px 0px 0px rgb(67, 90, 65);
+    text-align: center;
+}
+
+.image-div .photo p{
+    line-height: 1.5em;
+}
+
+.image-div .photo a{
+    text-decoration: none;
+    color: #678FFF ;
+    font-weight: bold;
+} */
+
+/* text */
+
+/* .text{
+    text-align: center;
+    background-color: coral;
+    color: white;
+    margin-top: -175px;
+    padding-top: 175px;
+}
+
+.text div{
+    font-size: 1.6em;
+}
+
+.text button {
+    padding: 11px 42px;
+    background-color: #222222ad;
+    color: white;
+    border-radius: 11px;
+    font-size: 16px;
+}
+
+.text img{
+    width: 73%;
+} */
+
+
+/* image div */
+

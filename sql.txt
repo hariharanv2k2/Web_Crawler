@@ -1,0 +1,29 @@
+CREATE TABLE metadata (
+    id int NOT NULL AUTO_INCREMENT,
+    website varchar(255) NOT NULL,
+    url varchar(255) NOT NULL,
+    h1 text,
+    p text,
+    title text,
+    PRIMARY KEY (id)
+);
+
+
+CREATE TABLE websites (
+    id int NOT NULL AUTO_INCREMENT,
+    websitename varchar(255) NOT NULL,
+    url varchar(2048) DEFAULT NULL,
+    discription text,
+    state tinyint(1) NOT NULL DEFAULT '1',
+    PRIMARY KEY (id)
+);
+
+
+CREATE TABLE user (
+    id int NOT NULL AUTO_INCREMENT,
+    Name varchar(255) NOT NULL,
+    Password varchar(255) NOT NULL,
+    Phoneno varchar(15) DEFAULT NULL,
+    Role varchar(50) DEFAULT NULL,
+    PRIMARY KEY (`id`)
+);
